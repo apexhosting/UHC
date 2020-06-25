@@ -1,0 +1,35 @@
+groups:
+  default:
+    options:
+      default: true
+      prefix: '&b'
+      weight: '3'
+    permissions:
+    - modifyworld.*
+  Admin:
+    permissions:
+    - '*'
+    options:
+      prefix: '&c&l[&cAdmin&c&l]&c'
+      weight: '1'
+  Mod:
+    options:
+      prefix: '&3&l[&3Mod&3&l]&3'
+      weight: '2'
+    permissions:
+    - essentials.chat.spy
+    - essentials.mute
+    - essentials.kick
+    - essentials.ban
+schema-version: 1
+users:
+  c0a68af6-e4ee-4b2b-b6bd-4287d97f0755:
+    group:
+    - Admin
+    options:
+      name: robert_beckley
+  8895209c-67d1-411a-9bd4-9118d33afa85:
+    group:
+    - default
+    options:
+      name: FanciestPotato
