@@ -61,6 +61,13 @@ advancements:
   - minecraft:story/disabled
 world-settings:
   default:
+    seed-endcity: 10387313
+    seed-bastion: 30084232
+    seed-fortress: 30084232
+    seed-mansion: 10387319
+    seed-fossil: 14357921
+    seed-portal: 34222645
+    end-portal-sound-radius: 0
     view-distance: default
     trident-despawn-rate: 1200
     max-entity-collisions: 8
@@ -84,6 +91,7 @@ world-settings:
       vine-modifier: 100
       cocoa-modifier: 100
     entity-activation-range:
+      water: 16
       raiders: 48
       animals: 32
       monsters: 32
