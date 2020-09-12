@@ -1,24 +1,205 @@
-# Edit kits here, to remove all kits write only an empty node: "kits: {}"
+#Edit kits here, to remove all kits write only an empty node: "kits: {}"
 kits:
-  # Choose a keyword for the kit (not displayed in game)
-  tools:
+  steve:
     symbol:
-      #Choose what item will represent the kit
       item: '{"type":"STONE_PICKAXE"}'
-      #Choose the name of the item
-      name: Kit Tools
-    # Write a list of item following the JSON item syntax
-    # To view the correct item item data you can use '/iteminfo' in game (Permission: 'uhc-core.commands.iteminfo')
+      name: Steve
     items:
       - '{"type":"STONE_SWORD"}'
-      - '{"type":"STONE_PICKAXE"}'
       - '{"type":"STONE_AXE"}'
+      - '{"type":"STONE_PICKAXE"}'
+      - '{"type":"STONE_SHOVEL"}'
 
-  # Write other kits
-  ench:
+  book:
     symbol:
       item: '{"type":"ENCHANTED_BOOK"}'
-      name: Enchanting
+      name: Book Worm
     items:
-      - '{"type":"PAPER","amount":15}'
-      - '{"type":"LEATHER","amount":5}'
+      - '{"type":"PAPER","amount":60}'
+      - '{"type":"LEATHER","amount":10}'
+
+  butterfly:
+    symbol:
+      item: '{"type":"ELYTRA"}'
+      name: Butterfly
+    items:
+      - '{"type":"ELYTRA","enchantments":[{"type":"binding_curse","level":1}]}'
+      - '{"type":"POTION","base-effect":{"type":"JUMP","upgraded":true}}'
+
+  chemist:
+    symbol:
+      item: '{"type":"BREWING_STAND"}'
+      name: Chemist
+    items:
+      - '{"type":"BLAZE_ROD","amount":9}'
+      - '{"type":"GLASS","amount":3}'
+      - '{"type":"NETHER_WART","amount":3}'
+      - '{"type":"GLISTERING_MELON_SLICE"}'
+      - '{"type":"GHAST_TEAR"}'
+      - '{"type":"GOLDEN_CARROT"}'
+      - '{"type":"SLIME_BALL"}'
+      - '{"type":"DRAGON_BREATH"}'
+
+  archer:
+    symbol:
+      item: '{"type":"CROSSBOW"}'
+      name: Archer
+    items:
+      - '{"type":"CROSSBOW"}'
+      - '{"type":"TIPPED_ARROW","amount":25,"base-effect":{"type":"SLOWNESS","upgraded":true}}'
+      - '{"type":"ARROW","amount":64}'
+      - '{"type":"ARROW","amount":64}'
+
+  tank:
+    symbol:
+      item: '{"type":"SHIELD"}'
+      name: Tank
+    items:
+      - '{"type":"STONE_AXE"}'
+      - '{"type":"SHIELD"}'
+      - '{"type":"POTION","base-effect":{"type":"TURTLE_MASTER","extended":true}}'
+      - '{"type":"POTION","base-effect":{"type":"TURTLE_MASTER","extended":true}}'
+
+  seatitan:
+    symbol:
+      item: '{"type":"TRIDENT"}'
+      name: Sea Titan
+    items:
+      - '{"type":"TRIDENT"}'
+      - '{"type":"GOLDEN_SHOVEL","enchantments":[{"type":"efficiency","level":2}]}'
+      - '{"type":"TURTLE_HELMET","enchantments":[{"type":"aqua_affinity","level":1},{"type":"respiration","level":3}]}'
+      - '{"type":"GOLDEN_BOOTS","enchantments":[{"type":"depth_strider","level":3}]}'
+
+  stevejobs:
+    symbol:
+      item: '{"type":"APPLE"}'
+      name: Steve Jobs
+    items:
+      - '{"type":"APPLE","amount":16}'
+
+  itemfreak:
+    symbol:
+      item: '{"type":"CHEST"}'
+      name: Item Freak
+    items:
+      - '{"type":"ENDER_CHEST","amount":3}'
+      - '{"type":"SHULKER_SHELL","amount":6}'
+      - '{"type":"GOLDEN_PICKAXE"}'
+
+  hanzo:
+    symbol:
+      item: '{"type":"SPECTRAL_ARROW"}'
+      name: Hanzo
+    items:
+      - '{"type":"BOW"}'
+      - '{"type":"SPECTRAL_ARROW","amount":64}'
+      - '{"type":"SPLASH_POTION","display-name":"Splash Potion of Revealing","lore":["&9Glowing (∞)"],"flags":["HIDE_ENCHANTS","HIDE_ATTRIBUTES","HIDE_UNBREAKABLE","HIDE_DESTROYS","HIDE_PLACED_ON","HIDE_POTION_EFFECTS"],"base-effect":{"type":"UNCRAFTABLE"},"color":16773120,"custom-effects":[{"type":"GLOWING","duration":1999980,"amplifier":20}]}'
+
+  engineer:
+    symbol:
+      item: '{"type":"PISTON"}'
+      name: Engineer
+    items:
+      - '{"type":"STICKY_PISTON","amount":8}'
+      - '{"type":"PISTON","amount":8}'
+      - '{"type":"OBSERVER","amount":16}'
+      - '{"type":"HONEY_BLOCK","amount":25}'
+      - '{"type":"SLIME_BLOCK","amount":25}'
+      - '{"type":"STONE_BUTTON","amount":4}'
+
+  skywarssweat:
+    symbol:
+      item: '{"type":"BIRCH_SAPLING"}'
+      name: Skywars Sweat
+    items:
+      - '{"type":"LAVA_BUCKET"}'
+      - '{"type":"WATER_BUCKET"}'
+      - '{"type":"BIRCH_SAPLING","amount":16}'
+      - '{"type":"BONE_MEAL","amount":64}'
+      - '{"type":"GRAVEL","amount":16}'
+      - '{"type":"COBWEB","amount":3}'
+      - '{"type":"SNOW_BLOCK","amount":2}'
+      - '{"type":"CARVED_PUMPKIN"}'
+
+  explorer:
+    symbol:
+      item: '{"type":"COMPASS"}'
+      name: Explorer
+    items:
+      - '{"type":"CRAFTING_TABLE"}'
+      - '{"type":"FURNACE","amount":2}'
+      - '{"type":"SMOKER","amount":2}'
+      - '{"type":"SMITHING_TABLE"}'
+      - '{"type":"COMPASS","amount":3}'
+      - '{"type":"LODESTONE"}'
+      - '{"type":"SOUL_TORCH","amount":64}'
+      - '{"type":"DIAMOND_HORSE_ARMOR"}'
+      - '{"type":"SADDLE"}'
+
+  gladiator:
+    symbol:
+      item: '{"type":"DIAMOND_SWORD"}'
+      name: Gladiator
+    items:
+      - '{"type":"DIAMOND_SWORD","durability":1061}'
+      - '{"type":"CHAINMAIL_HELMET"}'
+      - '{"type":"CHAINMAIL_LEGGINGS"}'
+
+  boomer:
+    symbol:
+      item: '{"type":"TNT"}'
+      name: Boomer
+    items:
+      - '{"type":"TNT","amount":16}'
+      - '{"type":"REPEATER","amount":4}'
+      - '{"type":"REDSTONE","amount":64}'
+      - '{"type":"REDSTONE","amount":64}'
+      - '{"type":"CRIMSON_BUTTON","amount":4}'
+      - '{"type":"TRIPWIRE_HOOK","amount":8}'
+      - '{"type":"STONE_PRESSURE_PLATE","amount":4}'
+
+  zoologist:
+    symbol:
+      item: '{"type":"CARROT_ON_A_STICK"}'
+      name: Zoologist
+    items:
+      - '{"type":"WOLF_SPAWN_EGG","amount":3}'
+      - '{"type":"BONE","amount":12}'
+      - '{"type":"CARROT_ON_A_STICK"}'
+      - '{"type":"WARPED_FUNGUS_ON_A_STICK"}'
+      - '{"type":"SADDLE"}'
+      - '{"type":"HAY_BLOCK","amount":8}'
+
+  cursed:
+    symbol:
+      item: '{"type":"SKELETON_SKULL"}'
+      name: Cursed
+    items:
+      - '{"type":"POTION","display-name":"Potion of Curse","lore":["&cBy drinking this potion, you will permanently be reduced to 1hp but you will be given Strength X"],"enchantments":[{"type":"vanishing_curse","level":1}],"flags":["HIDE_ENCHANTS","HIDE_ATTRIBUTES","HIDE_UNBREAKABLE","HIDE_DESTROYS","HIDE_PLACED_ON","HIDE_POTION_EFFECTS"],"base-effect":{"type":"UNCRAFTABLE"},"color":16711680,"custom-effects":[{"type":"INCREASE_DAMAGE","duration":19999980,"amplifier":9},{"type":"POISON","duration":19999980,"amplifier":6}]}'
+
+  assasin:
+    symbol:
+      item: '{"type":"ENDER_PEARL"}'
+      name: Assasin
+    items:
+      - '{"type":"STONE_AXE"}'
+      - '{"type":"ENDER_PEARL","amount":7}'
+      - '{"type":"LINGERING_POTION","base-effect":{"type":"INVISIBILITY"}}'
+      - '{"type":"LINGERING_POTION","base-effect":{"type":"INVISIBILITY"}}'
+      - '{"type":"CHAINMAIL_BOOTS"}'
+
+  builder:
+    symbol:
+      item: '{"type":"SCAFFOLDING"}'
+      name: Builder
+    items:
+      - '{"type":"GOLDEN_PICKAXE"}'
+      - '{"type":"SCAFFOLDING","amount":64}'
+      - '{"type":"SCAFFOLDING","amount":64}'
+      - '{"type":"SCAFFOLDING","amount":64}'
+      - '{"type":"SMOOTH_STONE","amount":64}'
+      - '{"type":"SMOOTH_STONE","amount":64}'
+      - '{"type":"SMOOTH_STONE","amount":64}'
+      - '{"type":"SMOOTH_STONE","amount":64}'
+      -  '{"type":"GLASS","amount":64}'
+

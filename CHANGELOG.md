@@ -1,6 +1,21 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+
+## [2.1]
+
+### Added
+- New custom spawn lobby
+- New Kits
+- New Custom Crafts
+- Scoreboard optimisations
+- Some mioor twaks to config.yml
+
+### Changed
+- Update EssentialsX from version 2.18.0 to 2.18.1
+- Update ProtocolLib from version 4.5.1 Build 476 to 4.5.1 Build 478
+- Update UhcCore from version 1.18 to 1.18.2
+
 ## [2.0]
 
 ### Added
@@ -28,5 +43,6 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Nothing
 
+[2.1]: https://github.com/apexhosting/UHC/releases/tag/2.1
 [2.0]: https://github.com/apexhosting/UHC/releases/tag/2.0
 [1.0]: https://github.com/apexhosting/UHC/releases/tag/1.0

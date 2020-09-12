@@ -31,52 +31,59 @@
 #  %teamColor% = The color of the team on tab. (Only a color so you need to put text behind it inorder for it to show.)
 
 # Title of the scoreboard
-title: '&6&lUHC-Core'
+title: '&3&lApex UHC'
 
 # Scoreboard while waiting...
 waiting:
   - ''
-  - '&6Players:'
-  - '&a%online% / %needed% Needed'
+  - '&3Players:'
+  - '&2%online% / %needed% Needed'
   - ''
-  - '&6Team color:'
-  - '&a%teamColor%'
+  - '&3Team color:'
+  - '&2%teamColor%'
   - ''
-  - '&6Kit:'
-  - '&a%kit%'
+  - '&3Kit:'
+  - '&2%kit%'
   - ''
-  - '&6Scenarios:'
-  - '&a%scenarios%'
-  - ''
-  - '&6IP:'
-  - '&aplay.myserver.com'
+  - '&3IP:'
+  - '&2uhc.server.com'
 
 # Scoreboard while game is playing.
 playing:
-  - '&6Meetup: &a%deathmatch%'
-  - '&6Border: &a%border%'
-  - '&6Kills: &a%kills%'
-  - '&6Players left: &a%alive%'
-  - '&6Y-Layer: &a%ylayer%'
-  - '&6Team:'
-  - '&a%members-name% &c%members-health% &lHP'
+  - '&3Meetup: &2%deathmatch%'
+  - '&3Border: &2%border%'
+  - '&3Kills: &2%kills%'
+  - '&3Players left: &2%alive%'
+  - '&3Y-Layer: &2%ylayer%'
   - ''
-  - '&aplay.myserver.com'
+  - '&3Team:'
+  - '&2%members-name% &c%members-health% &lHP'
+  - ''
+  - '&3Scenarios:'
+  - '&2%scenarios%'
+  - ''
+  - '&2uhc.server.com'
 
 
 # Scoreboard while game is in deathmatch.
 deathmatch:
-  - '&6Border: &a%border%'
-  - '&6Kills: &a%kills%'
-  - '&6Players left: &a%alive%'
+  - '&3Border: &2%border%'
+  - '&3Kills: &2%kills%'
+  - '&3Players left: &2%alive%'
   - ''
-  - '&aplay.myserver.com'
+  - '&3Scenarios:'
+  - '&2%scenarios%'
+  - ''
+  - '&2uhc.server.com'
 
 # Scoreboard while in spectator
 spectating:
-  - '&6Meetup: &a%deathmatch%'
-  - '&6Border: &a%border%'
-  - '&6Kills: &a%kills%'
-  - '&6Players left: &a%alive%'
+  - '&3Meetup: &2%deathmatch%'
+  - '&3Border: &2%border%'
+  - '&3Kills: &2%kills%'
+  - '&3Players left: &2%alive%'
   - ''
-  - '&aplay.myserver.com'
+  - '&3Scenarios:'
+  - '&2%scenarios%'
+  - ''
+  - '&2uhc.server.com'
