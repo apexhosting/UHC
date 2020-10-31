@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.1.1]
+
+### Added
+- Removed End Portal from lobby for FPS issues.
+- Welcome message via essentials MOTD 
+- Update UhcCore from version 1.18.2 to 1.18.3
+- Update WorldEdit from version 7.2.0 Beta 4 to 7.2.0 RC 2
+- Update Server jar to Tuinity 1.16 version 162
 
 ## [2.1]
 
@@ -9,7 +17,7 @@ All notable changes to this project will be documented in this file.
 - New Kits
 - New Custom Crafts
 - Scoreboard optimisations
-- Some mioor twaks to config.yml
+- Some minor tweaks to config.yml
 
 ### Changed
 - Update EssentialsX from version 2.18.0 to 2.18.1
@@ -43,6 +51,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Nothing
 
+[2.1.1]: https://github.com/apexhosting/UHC/releases/tag/2.1.1
 [2.1]: https://github.com/apexhosting/UHC/releases/tag/2.1
 [2.0]: https://github.com/apexhosting/UHC/releases/tag/2.0
 [1.0]: https://github.com/apexhosting/UHC/releases/tag/1.0
