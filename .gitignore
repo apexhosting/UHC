@@ -1,2 +1,19 @@
 
 *.zip
+banned-ips.json
+banned-players.json
+cache/*
+commands.yml
+help.yml
+eula.txt
+libraries/*
+logs/*
+ops.json
+permissions.yml
+plugins/bStats/config.yml
+plugins/WorldEdit/.archive-unpack/*
+usercache.json
+version_history.json
+wepif.yml
+whitelist.json
+plugins/Updater/config.yml

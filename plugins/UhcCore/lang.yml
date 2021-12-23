@@ -53,8 +53,8 @@ command:
   top-error-nether: '&cYou can only use this command in the overworld.'
   spectate:
     error: '&cYou may only toggle to spectating mode while the game has not yet started.'
-    playing: '&aYour now playing!'
-    spectating: '&aYour now spectating!'
+    playing: '&aYou''re now playing!'
+    spectating: '&aYou''re now spectating!'
 team:
   inventory:
     main: '&2Team Menu'
@@ -120,7 +120,7 @@ items:
     apple-help: '&eEat this to heal 4 hearts and get 2 absorption hearts.'
   compass-playing: '&aRight click to point to a teammate'
   compass-playing-error: '&cThere is no playing teammate to point to.'
-  compass-playing-cooldown: '&cYour clicking the compass too fast, please wait!'
+  compass-playing-cooldown: '&cYou''re clicking the compass too fast, please wait!'
   compass-playing-pointing: '&aPointing towards %player%''s last location (%distance%
     blocks)'
   kit-selection: '&aRight click to choose a kit'
@@ -155,11 +155,11 @@ scenarios:
     inventory-vote: '&6&lVote &7(Toggle votes)'
     item-edit: '&6Edit'
     item-back: '&6Back'
+    item-next: '&6Next'
     item-hotbar: '&6Right click to view active scenarios'
     item-color: '&5'
     item-info: '&7(Right click for info)'
     vote-max: '&cMax votes reached (%max%)'
-    item-next: '&6Next'
   cutclean:
     name: CutClean
     description:
@@ -186,6 +186,10 @@ scenarios:
     description:
     - Shields are not craftable.
     error: '&4[Shieldless] &cYou can''t craft shields!'
+  blood_diamonds:
+    name: Blood Diamonds
+    description:
+    - When mining a diamond ore, the player will take half a heart of damage.
   timber:
     name: Timber
     description:
@@ -201,45 +205,12 @@ scenarios:
     - After killing a player, their loot will drop into a double chest.
     - The chest will explode 30 seconds later.
     chest: '&6&l%player%''s Timebomb'
-  goldless:
-    name: Gold Less
-    description:
-    - When gold is mined, it will disappear and is not obtainable.
-  switcheroo:
-    name: Switcheroo
-    description:
-    - When you shoot someone, you trade places with them
-    switch: '&4[Switcheroo] &6You have switched positions with &3%player%'
-  superheroes:
-    name: Super Heroes
-    description:
-    - Each player will gain a special ability.
-    - The powers are speed 1, strength 1, resistance 2, invisibility, 6 extra hearts,
-      and jump boost 4.
-  anonymous:
-    name: Anonymous
-    description:
-    - All player names are distorted.
-  permakill:
-    name: PermaKill
-    description:
-    - When a player dies, it toggles perma day/night.
-  eggs:
-    name: Eggs
-    description:
-    - When you throw an egg, a random mob will spawn where it lands.
-    - This includes enderdragons and withers.
-    - When you kill a chicken, there is a 5% chance of it dropping an egg.
-  blood_diamonds:
-    name: Blood Diamonds
-    description:
-    - When mining a diamond ore, the player will take half a heart of damage.
   no_fall:
-    name: No-Fall
+    name: No Fall
     description:
     - Fall damage is off.
   best_pve:
-    name: BestPvE
+    name: Best PvE
     description:
     - Each player will be added to the "Best PvE List" at the start of the game.
     - While being on the list , you will gain 1 extra heart every 10 minutes.
@@ -266,7 +237,7 @@ scenarios:
     disabled: '&cTeam Inventory is currently disabled!'
     open: '&aOpening team inventory ...'
   no_clean:
-    name: No-Clean
+    name: No Clean
     description:
     - Gives you 30 seconds of invincibility after a kill.
     - Attacking other players will remove this PvP Protection.
@@ -289,17 +260,26 @@ scenarios:
     name: Double Gold
     description:
     - The original amount of gold will double when mined.
+  goldless:
+    name: Goldless
+    description:
+    - When gold is mined, it will disappear and is not obtainable.
   flower_power:
-    name: FlowerPower
+    name: Flower Power
     description:
     - Break flowers to receive items.
+  switcheroo:
+    name: Switcheroo
+    description:
+    - When you shoot someone, you trade places with them
+    switch: '&4[Switcheroo] &6You have switched positions with &3%player%'
   vein_miner:
     name: Vein Miner
     description:
     - Mining a block while crouched breaks blocks of the same type in a chain reaction
     - Only works when using the correct tool for the block type
   dragon_rush:
-    name: DragonRush
+    name: Dragon Rush
     description:
     - In dragon rush the goal is to kill the dragon.
     - The first team to kill the dragon wins!
@@ -322,11 +302,21 @@ scenarios:
     description:
     - In this scenario after 30 minutes you will start taking damage every 30 seconds
       while not above y=120
-    damage: '&4[SkyHigh] &cYour taking damage as your under y=120'
+    damage: '&4[Sky High] &cYou''re taking damage as your under y=120'
   fast_smelting:
     name: Fast Smelting
     description:
     - In this scenario item smelting is sped up 5 times.
+  superheroes:
+    name: Superheroes
+    description:
+    - Each player will gain a special ability.
+    - The powers are speed 1, strength 1, resistance 2, invisibility, 6 extra hearts,
+      and jump boost 4.
+  anonymous:
+    name: Anonymous
+    description:
+    - All player names are distorted.
   gone_fishing:
     name: Gone Fishing
     description:
@@ -345,12 +335,22 @@ scenarios:
     description:
     - At night death messages, name tags, and chat are disabled.
     error: '&4[Silent Night] &cSilent Night is enabled'
+  permakill:
+    name: PermaKill
+    description:
+    - When a player dies, it toggles perma day/night.
   weakest_link:
     name: Weakest Link
     description:
     - Every 10 minutes the person with the least health will perish.
     - If everyone is at the same health no one will die.
     kill: '&4[Weakest Link] &c%player% has been killed!'
+  eggs:
+    name: Eggs
+    description:
+    - When you throw an egg, a random mob will spawn where it lands.
+    - This includes enderdragons and withers.
+    - When you kill a chicken, there is a 5% chance of it dropping an egg.
   no_going_back:
     name: No Going Back
     description:
