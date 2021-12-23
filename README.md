@@ -5,11 +5,11 @@ UHC is a gamemode where you and your team are teleported randomly into the map. 
 https://apexminecrafthosting.com/uhc-server/
 
 ## Plugin List
-[EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/)
-[PermissionsEx](https://github.com/PEXPlugins/PermissionsEx)
-[PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/)
-[ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)
-[UhcCore](https://www.spigotmc.org/resources/uhccore-automated-uhc-for-minecraft-1-8-8-1-16.47572/)
-[Vault](https://www.spigotmc.org/resources/vault.34315/)
-[WorldEdit](https://dev.bukkit.org/projects/worldedit)
+- [EssentialsX](https://www.spigotmc.org/resources/essentialsx.9089/)
+- [PermissionsEx](https://github.com/PEXPlugins/PermissionsEx)
+- [PlaceholderAPI](https://www.spigotmc.org/resources/placeholderapi.6245/)
+- [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)
+- [UhcCore](https://www.spigotmc.org/resources/uhccore-automated-uhc-for-minecraft-1-8-8-1-16.47572/)
+- [Vault](https://www.spigotmc.org/resources/vault.34315/)
+- [WorldEdit](https://dev.bukkit.org/projects/worldedit)
 
