@@ -1,6 +1,11 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.4]
+
+### Added
+Updated to 1.18.1
+
 ## [2.3]
 
 ### Added
@@ -63,6 +68,7 @@ Use paper as base Jar
 ### Changed
 - Nothing
 
+[2.4]: https://github.com/apexhosting/UHC/releases/tag/2.4
 [2.3]: https://github.com/apexhosting/UHC/releases/tag/2.3
 [2.2]: https://github.com/apexhosting/UHC/releases/tag/2.2
 [2.1.1]: https://github.com/apexhosting/UHC/releases/tag/2.1.1
