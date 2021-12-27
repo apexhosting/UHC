@@ -11,5 +11,8 @@ https://apexminecrafthosting.com/uhc-server/
 - [ProtocolLib](https://www.spigotmc.org/resources/protocollib.1997/)
 - [UhcCore](https://www.spigotmc.org/resources/uhccore-automated-uhc-for-minecraft-1-8-8-1-16.47572/)
 - [Vault](https://www.spigotmc.org/resources/vault.34315/)
+- [ViaRewind](https://www.spigotmc.org/resources/viarewind.52109/)
+- [ViaVersion](https://www.spigotmc.org/resources/viaversion.19254/)
+- [Village Defense](https://www.spigotmc.org/resources/village-defense-1-11-1-16.41869/)
 - [WorldEdit](https://dev.bukkit.org/projects/worldedit)
 

@@ -1,22 +1,28 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [2.5]
+
+### Added
+- Added the Via suite of plugins for version support.
+
+
 ## [2.4]
 
 ### Added
-Updated to 1.18.1
+- Updated to 1.18.1
 
 ## [2.3]
 
 ### Added
-Updated to 1.17.1
+- Updated to 1.17.1
 
 ## [2.2]
 
 ### Added
-Updated to 1.16.5
-All plugins updated
-Use paper as base Jar
+- Updated to 1.16.5
+- All plugins updated
+- Use paper as base Jar
 
 ## [2.1.1]
 
