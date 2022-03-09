@@ -13,6 +13,5 @@ https://apexminecrafthosting.com/uhc-server/
 - [Vault](https://www.spigotmc.org/resources/vault.34315/)
 - [ViaRewind](https://www.spigotmc.org/resources/viarewind.52109/)
 - [ViaVersion](https://www.spigotmc.org/resources/viaversion.19254/)
-- [Village Defense](https://www.spigotmc.org/resources/village-defense-1-11-1-16.41869/)
 - [WorldEdit](https://dev.bukkit.org/projects/worldedit)
 
