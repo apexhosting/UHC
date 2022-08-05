@@ -1,6 +1,14 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0]
+
+- Reverted version.
+- Implemented 1.8-1.19 support.
+- Implemented custom TAB.
+- Implemented custom Scoreboard.
+- Tested gameplay.
+
 ## [2.5]
 
 ### Added
@@ -74,6 +82,7 @@ All notable changes to this project will be documented in this file.
 ### Changed
 - Nothing
 
+[3.0]: https://github.com/apexhosting/UHC/releases/tag/3.0
 [2.4]: https://github.com/apexhosting/UHC/releases/tag/2.4
 [2.3]: https://github.com/apexhosting/UHC/releases/tag/2.3
 [2.2]: https://github.com/apexhosting/UHC/releases/tag/2.2

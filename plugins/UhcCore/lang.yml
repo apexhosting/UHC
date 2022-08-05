@@ -25,14 +25,14 @@ players:
   send-bungee-now: '&eConnecting to Hub ...'
   send-bungee-disabled: '&cThis command is disabled'
 display:
-  message-prefix: '&a[UhcCore]&r'
+  message-prefix: '&7[&c&LUHC&7]'
   episode-mark: End of episode %episode%!
   spectator-chat: '&7[Spec] &r%player%&r: %message%'
-  motd-loading: Loading ...
-  motd-waiting: Waiting ...
-  motd-starting: Starting
-  motd-playing: Playing
-  motd-ended: Ended
+  motd-loading: '&c&lUHC: &cRestarting...'
+  motd-waiting: '&c&lUHC: &aWaiting for players...'
+  motd-starting: '&c&lUHC: &eStarting...'
+  motd-playing: '&c&lUHC: &7Playing...'
+  motd-ended: '&c&LUHC: &7Game ended...'
 kick:
   loading: Loading. Please retry in a few minutes.
   starting: Starting ... Too late to join.

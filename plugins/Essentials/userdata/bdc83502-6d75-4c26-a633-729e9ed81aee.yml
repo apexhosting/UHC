@@ -1,0 +1,30 @@
+teleportenabled: true
+teleportauto: false
+godmode: false
+muted: false
+jailed: false
+ip-address: 190.92.13.10
+afk: false
+socialspy: false
+npc: false
+powertoolsenabled: true
+accepting-pay: true
+baltop-exempt: false
+timestamps:
+  lastteleport: 0
+  lastheal: 0
+  mute: 0
+  jail: 0
+  onlinejail: 0
+  logout: 1659702765543
+  login: 1659702717488
+money: '0'
+last-account-name: AllanDev
+logoutlocation:
+  world: 5c378d33-88fa-42f0-9cd1-1e1cbe9e5120
+  world-name: 5e8af5ca-587b-4e5e-99e6-e596ebd1f8d2
+  x: 1.3542329869417495
+  y: 200.0
+  z: 4.010388116067148
+  yaw: 326.8474426269531
+  pitch: 2.8498568534851074
