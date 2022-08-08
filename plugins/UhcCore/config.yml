@@ -1,4 +1,4 @@
-#Choose the percentage threshold of ready teams at which the game should start
+#Choose the percentage threshold of ready teams at which the game should start (Ignored when 'team-always-ready' is set to true)
 minimal-ready-teams-percentage-to-start: 60
 
 #Choose the threshold of ready teams at which the game should start (in combination with the percentage condition)
@@ -8,9 +8,10 @@ minimal-ready-teams-to-start: 2
 min-players-to-start: 2
 
 #Choose how much players can be in the same team, set it to 1 to play a game with no teams
-max-players-per-team: 3
+max-players-per-team: 2
 
 #If true every team will get a random team color (This color may be changed in the team color selector).
+#When disabled enemies will be red, team members green.
 use-team-colors: true
 
 # If true the display name of players will change to the color of their team (The display name shows in chat and in messages of other plugins that use display name).
@@ -29,13 +30,16 @@ force-assign-solo-player-to-team-when-starting: false
 prevent-player-from-leaving-team: false
 
 #Forces the teams to be always ready, thus preventing afk players from blocking the beginning of the game
-team-always-ready: false
+team-always-ready: true
+
+# Set to false if you don't want players to be able to rename their teams.
+enable-team-names: true
 
 #Choose the coundown time to start the game when enough teams are ready
 #This value must be set to 6 or more. If you set a value of 5 or less, it will cause an unpredictable behavior.
 time-to-start-when-ready: 15
 
-#The time is seconds before the PVP starts
+#The time in seconds before the PVP starts
 time-before-pvp: 600
 
 # When enabled players of the same team will be able to damage each other.
@@ -51,14 +55,14 @@ can-spectate-after-death: true
 # (Give players the permission 'uhc-core.spectate.override' to always allow them to spectate)
 can-join-as-spectator: true
 
-#Set it to false to block spectators from sending messages (Players with the permission 'uhc-core.chat.override' will still be able to talk)
-can-send-messages-after-death: false
+# Set it to false to block spectators from sending messages in global chat. (Players with the permission 'uhc-core.chat.override' will still be able to in global chat)
+# They will appear in a separate spectator chat only visible for other spectators.
+can-send-messages-after-death: true
 
 # Chat prefix, when enabled, messages starting with @ will display in team chat, when starting with ! they will be displayed in global chat.
 # This means players don't have to use /chat to toggle between team and global chat each time.
 chat-prefix:
-  #Set it to true to send players back to a server at the end
-  enable: false
+  enable: true
   team-prefix: '@'
   global-prefix: '!'
 
@@ -66,16 +70,18 @@ chat-prefix:
 disable-motd: false
 
 # Game difficulty (Choose from this list: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/Difficulty.html)
-game-difficulty: NORMAL
+game-difficulty: HARD
+
+# When set to false, Advancements (1.12+) will not be announced in chat. Achievements (1.8-1.11) can be turned off in your server.properties
+announce-advancements: true
 
 # This feature might not make a lot of sense for UHC but if you want to enable natural health regen you can do it here.
 enable-health-regen: false
 
 #Configure after how many seconds a disconnected player should be considered dead and eliminated
 kill-disconnected-players-after-delay:
-  enable: true
-  # Duration of the episodes in seconds.
-  delay: 60
+  enable: false
+  delay: 300
 
 # If enabled offline players are replaced by a zombie, if killed the player dies and their items drop.
 spawn-offline-players: true
@@ -90,13 +96,14 @@ countdown-ending-game-when-all-players-have-left: true
 # Enable to have a message and sound every x minutes. (This can be used for youtubers to know when to end their episodes.)
 episode-markers:
   enable: false
+  # Duration of the episodes in seconds.
   delay: 900
 
 #Choose the potions effects to be given to the players when the game starts
 #syntax = POTION_NAME/duration_in_ticks/amplifier
-#reference list https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/potion/PotionEffectType.html
+#reference list https://hub.spigotmc.org/javadocs/spigot/org/bukkit/potion/PotionEffectType.html
 potion-effect-on-start:
-- REGENERATION/200/10
+  - REGENERATION/200/10
 
 # Customize game behavior to add non-standard minecraft things
 customize-game-behavior:
@@ -105,85 +112,82 @@ customize-game-behavior:
   enable-default-scenarios: false
 
   # You can change these for individual game using /scenarios (permission: 'uhc-core.scenarios.edit')
-  # You can choose from these scenarios: CUTCLEAN, FIRELESS, BOWLESS, RODLESS, SHIELDLESS, BLOODDIAMONDS, TIMBER, HORSELESS,
-  # TIMEBOMB, NOFALL, BESTPVE, TRIPLEORES, DOUBLEORES, TEAMINVENTORY, NOCLEAN, HASTEYBOYS, LUCKYLEAVES, BLEEDINGSWEETS,
-  # DOUBLEGOLD, GOLDLESS, SWITCHEROO, VEINMINER, DRAGONRUSH, LOVEATFIRSTSIGHT, FASTLEAVESDECAY, SKYHIGH, FASTSMELTING,
-  # SUPERHEROES, ANONYMOUS, GONEFISHING, INFINITEENCHANTS, CHILDRENLEFTUNATTENDED, SILENTNIGHT, SHAREDHEALTH, PERMAKILL,
-  # WEAKESTLINK
+  # You can choose from these scenarios: cutclean, fireless, bowless, rodless, shieldless, blood_diamonds, timber, horseless,
+  # timebomb, no_fall, best_pve, triple_ores, double_ores, team_inventory, no_clean, hastey_boys, lucky_leaves, bleeding_sweets,
+  # double_gold, goldless, flower_power, switcheroo, vein_miner, dragon_rush, love_at_first_sight, fast_leaves_decay, sky_high,
+  # fast_smelting, superheroes, anonymous, gone_fishing, infinite_enchants, children_left_unattended, silent_night, permakill,
+  # weakest_link, eggs, no_going_back, double_dates, fly_high, randomized_drops, upside_down_crafting, randomized_crafts,
+  # monsters_inc, achievement_hunter, nine_slots, nether_start
   active-scenarios:
-  - timebomb
-  - hastey_boys
+    - cutclean
+    - hastey_boys
 
   scenarios:
     # When enabled players will be able to vote for what scenarios they want to be active.
     voting:
-      enable: true
+      enable: false
       # The amount of scenarios players can vote for.
-      max-votes: 4
+      max-votes: 3
       # The amount of scenarios with the most votes that will get added at the start of the game.
-      elected-scenarios: 4
+      elected-scenarios: 3
       # Black-list, scenarios under this list can not be voted for.
-      black-list:
-      - cutclean
-      - dragon_rush
+      black-list: [flower_power]
 
 
   # Set it to false to stop ghasts from dropping ghast-tears
   # Setting it to false is a good way to prevent people from making regeneration potions
   allow-ghast-tears-drops: true
 
-
   # Enable extra experience drops when killing a player (experience quantities reference http://minecraft.gamepedia.com/Experience)
   add-xp-drops-on-player-death:
-    # Set to true to enable force ending.
-    enable: true
+    enable: false
     quantity: 200
 
   # Enable random extra gold drops for specific mobs
-  # Entity types reference list here : https://hub.spigotmc.org/javadocs/bukkit/org/bukkit/entity/EntityType.html
+  # Entity types reference list here : https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
   add-gold-drops:
-    enable: true
+    enable: false
     min: 1
     max: 3
     drop-chance-percentage: 50
     affected-mobs:
-    - CREEPER
-    - GHAST
-    - SKELETON
-    - CAVE_SPIDER
-    - WITCH
-    - ENDERMAN
-    - VILLAGER
+      - CREEPER
+      - GHAST
 
   # Enable extra max life for every player
   add-player-extra-half-hearts:
-    enable: true
+    enable: false
     extra-half-hearts: 20
 
   # Set it to true to enable the need of a permission to use a custom craft
-  # Permissions node will be like uhc-core.craft.light-apple
+  # Permissions node will be like uhc-core.craft.light-apple (Craft name in lowercase and spaces replaced by dashes.)
   enable-crafts-permissions: false
 
   #Max building height (Set to -1 to disable).
   max-building-height: -1
 
+  # Set it to false to prevent players from entering the nether through a portal
+  # Only set this to true when you are really using it since more worlds loaded means worse performance.
+  enable-nether: true
+
   # Set it to true to enable the end.
   # Only set this to true when you are really using it since more worlds loaded means worse performance.
   enable-the-end: false
 
-  #Set it to true to prevent players from making level II potions with glowstone
+  # Set it to true to prevent players from making level II potions with glowstone
   ban-level-2-potions: false
 
   # When enabled the sun will move until 'time-before-permanent-day'
   day-night-cycle:
-    enable: false
+    # Set to false to always have permanent day.
+    enable: true
     # Time in seconds before permanent day is turned on. (If you want the sun to keep moving the entire day, set to -1)
     time-before-permanent-day: 1200
 
 
   # Set it to true to allow droping a player head when a player dies
   # Eating the head regenerates your team for 5 seconds
-  add-regen-head-drop-on-player-death: true
+  add-regen-head-drop-on-player-death: false
   # Set this to true to double the health given to your team.
   double-regen-head: false
 
@@ -194,7 +198,8 @@ customize-game-behavior:
   enable-golden-heads: true
   # Set to true to place skull on a fence pole instead of dropping it on the ground.
   place-head-on-fence: false
-  enable-nether: true
+
+  # When enabled a lightning strike will happen on the place of the player death
   stike-lightning-on-death: true
 
 # This section references optional features to allow to run in fast uhc mode ( = uhc run)
@@ -203,11 +208,13 @@ fast-mode:
   # Set to true if you want all playing players to be healed at a set time.
   final-heal:
     enable: false
-    # Time in seconds before force ending after last kill.
     delay: 1200
 
   underground-nether:
-    enable: true
+    # Set it to true to allow pasting a nether schematic file in the overworld.
+    # The file should be named nether.schematic and be located in the plugins/UhcCore folder
+    # If enabled, it will be pasted at random places in the world
+    enable: false
 
     # Choose the min number of times the schematic will be pasted at random places
     min-ocurrences: 5
@@ -222,77 +229,97 @@ fast-mode:
   # The name of the sub-category should be an existing block material
   # To view the correct item item data you can use '/iteminfo' in game (Permission: 'uhc-core.commands.iteminfo')
   # You can set 'loot' and 'add-xp' to drop an item or some xp
-  # The item syntax is MATERIAL/AMOUNT/DAMAGE
+  # Please respect the json-item syntax! (You can use the '/iteminfo [min] [max]' command to generate this syntax.)
   # If you do not want to have special loots, just leave the config node empty like that block-loot: {}
   block-loot:
-    enable: true
+    # Set to true to enable this feature
+    enable: false
 
     loots:
-
+      # It will drop 1-4 torches when breaking a coal ore block
       COAL_ORE:
-        loot: TORCH/4/0
+        loot:
+          - '{"type":"TORCH","minimum":1,"maximum":4}'
 
-      # Same config with other ores ...
+      # It will drop 1-2 iron ingots when breaking a iron ore block
+      # It will also drop 3 xp
       IRON_ORE:
-        loot: IRON_INGOT/2/0
+        loot:
+          - '{"type":"IRON_INGOT","minimum":1,"maximum":2}'
         add-xp: 3
 
-      # It will drop 2 gold ingots when breaking a gold ore block
+      # It will drop 1-2 gold ingots when breaking a gold ore block
       # It will also drop 3 xp
       GOLD_ORE:
-        loot: GOLD_INGOT/2/0
+        loot:
+          - '{"type":"GOLD_INGOT","minimum":1,"maximum":2}'
         add-xp: 3
 
-      # It will drop 2 diamonds when breaking a diamond ore block
+      # It will drop 1-2 diamonds when breaking a diamond ore block
       # It will also drop 5 xp
       DIAMOND_ORE:
-        loot: DIAMOND/2/0
+        loot:
+          - '{"type":"DIAMOND","minimum":1,"maximum":2}'
         add-xp: 5
 
-      # It will drop 4 arrows when breaking a gravel block
+      # It will drop 1-4 arrows when breaking a gravel block
       GRAVEL:
-        loot: ARROW/4/0
+        loot:
+          - '{"type":"ARROW","minimum":1,"maximum":4}'
 
   # Configure customizable mob loots
   # The name of the sub-category should be an existing entity type
   # See reference list here : https://hub.spigotmc.org/javadocs/spigot/org/bukkit/entity/EntityType.html
   # You can set 'loot' and 'add-xp' to drop an item or some xp
-  # The item syntax is MATERIAL/AMOUNT/DAMAGE
+  # Please respect the json-item syntax! (You can use the '/iteminfo [min] [max]' command to generate this syntax.)
   # If you do not want to have special loots, just leave the config node empty like that mob-loot: {}
   mob-loot:
-    enable: true
+    # Set to true to enable this feature
+    enable: false
+
     loots:
-      #It will drop 1 string and 2 xp when killing sheep.
+      #It will drop 1-2 string and 2 xp when killing sheep.
       SHEEP:
-        loot: STRING/1/0
+        loot:
+          - '{"type":"STRING","minimum":1,"maximum":2}'
         add-xp: 2
 
 
   # Generate extra sugar cane
   generate-sugar-cane:
+    # Set to true to enable this feature.
     enable: true
-    # What percentage of leaves should drop apples? (The default vanilla percentage is 0.5%)
+    # The percentage of spannable blocks populated with sugar cane. (100 means 100% of the grass/sand blocks along water are filled with sugar cane.)
     percentage: 10
 
 
   apple-drops:
-    percentage: 0.9
+    # What percentage of leaves should drop apples? (The default vanilla percentage is 0.5%)
+    percentage: 0.5
     # Set to true if you want all type of trees to drop apples. (By default only oak and dark oak trees drop apples)
     all-trees: true
     # Set to true if you want sheared leaves to drop apples.
-    allow-shears: true
+    allow-shears: false
 
-  # Having this enabled means ocean biomes will be replaced with planes and forrest.  (ONLY FOR 1.8!)
-  replace-ocean-biomes: false
+  # Having this enabled means ocean biomes will be replaced with planes and forrest.
+  replace-ocean-biomes: true
+
+  # Having this enabled means ores will only spawn in caves, so no strip mining.
+  # This does take some time to generate so please make sure you have pre-generate-world enabled.
+  cave-ores-only: false
 
   # Generates more ore in the map
   generate-vein:
-    enable: true
+
+    # Set it to true to enable this feature.
+    # If requires pre-generate-world to be enabled in order to generate more ores
+    enable: false
 
     # Configure the blocks to be generated
     # The names should be existing material names
     # To view the correct item item data you can use '/iteminfo' in game (Permission: 'uhc-core.commands.iteminfo')
     veins:
+
       COAL_ORE:
         # Minimum generated veins per chunk
         min-veins-per-chunk: 2
@@ -311,6 +338,8 @@ fast-mode:
 
         # Maximum y height where the vein will be generated
         max-y: 60
+
+      # Same config with other ores ...
       IRON_ORE:
         min-veins-per-chunk: 2
         max-veins-per-chunk: 10
@@ -353,7 +382,6 @@ fast-mode:
         max-blocks-per-vein: 3
         min-y: 0
         max-y: 60
-  cave-ores-only: false
 
 
 #Set it to true to enable kit permissions support.
@@ -362,7 +390,8 @@ enable-kits-permissions: false
 
 #Options to configure the playing compass
 playing-compass:
-  enable: true
+  #If set to false the playing compass will be removed from the game.
+  enable: false
   #Compass mode:
   # 1 = The compass will point towards teammates when right-clicking it
   # 2 = The compass will point towards enemy's when right-clicking it
@@ -377,16 +406,22 @@ hearts-on-tab: true
 # Set to true if you want to enable hearts below player names.
 hearts-below-name: true
 
-#Set it to true to give the spectating players access to the '/teleport <player>' command to teleport to playing players
+# Set it to true to give the spectating players access to the '/teleport <player>' command to teleport to playing players.
+# Setting this to false also blocks the vanilla spectator mode GUI from working.
 spectating-teleport: true
 
-#Options to pre-generate the world
+# Options to pre-generate the world
+# It's highly recommended you enable this for big games!
 pre-generate-world:
-  enable: true
+  # If set to true, the plugin will generate every chunks inside the world border to prevent lag during the game
+  # WARNING: Setting this to false might cause players to spawn underground.
+  enable: false
 
-  #Duration of the rest in ticks
-  rest-duration: 5
+  # Between what number of chunks the server will rest to avoid server crashing
   rest-every-num-of-chunks-ticks: 200
+
+  # Duration of the rest in ticks
+  rest-duration: 20
 
 #Setting up the world border
 border:
@@ -394,80 +429,32 @@ border:
   moving: true
 
   #Starting size of the border (500 means +500x, -500x, +500z, -500z)
-  start-size: 500
+  start-size: 5000
 
   #End size of the border (200means +200x, -200x, +200z, -200z)
-  end-size: 20
+  end-size: 200
 
   #If moving is set to true, the time in seconds for the border to shrink to end-size
-  time-to-shrink: 3300
+  time-to-shrink: 3600
 
   #If moving is set to true, the time in seconds for the border before it starts moving
-  time-before-shrink: 300
+  time-before-shrink: 0
 
-#Write custom seeds to be used when creating a new map
-world-seeds:
-  #Set it to true to pick a random seed from this list
-  pick-random-seed-from-list: false
-  #A list of your existing world folders
-  list:
-  - 8708477303049171819
-  - 4718448332187272495
 
-#Write existing world name in your server folder to copy and play on a map you have created.
-# If you also want a custom nether or end make sure to include those worlds. They will be named (your_world_nether, your_world_the_end)
-world-list:
-  #Set it to true to use that feature (you must set pick random seed to false also)
-  pick-random-world-from-list: false
-  list:
-  - your_world
-  - your_second_world
-
-#Enable bungee-coord support to send players back to the server of your choice when the game ends
-bungee-support:
-  enable: true
-  #Set it to true if you want players to get a return to lobby item on their hotbar.
-  use-lobby-item: true
-  #The name of the server (same as in your bungee config)
-  send-players-to-server-after-end: hub
-  #Time (in seconds) before sending the player to the hub (If spectating after death is disabled and they don't have the permission 'uhc-core.spectate.override').
-  time-before-send-after-death: 20
-  #Time (in seconds) before sending all the players to the hub after the game has ended
-  time-before-send-after-end: 20
-
-#Reward your players for taking achievements (kills, win, playing time).
-#Require Vault and an Economy plugin compatible with Vault (I recommend CraftConomy)
-custom-events:
-  #Reward a player a price in your economy currency every time he is still alive after the interval (in seconds)
-  time:
-    enable: false
-    reward: 100
-    interval: 600
-  #Reward a player a price in your economy currency every time he kills an enemy
-  kill:
-    enable: false
-    reward: 500
-  #Reward a price in your economy currency to the winners of the game
-  win:
-    enable: false
-    reward: 1000
-
-# When set to true, the plugin won't delete the last world, it will just load it. It will also ignore the map pre-generator.
-# This is to allow fast-configuration, to avoid creating new worlds when you only want to configure some other features.
-debug: false
-# When set to true, the game won't end when only one player is left. This can be used to play alone in order to test games.
-one-player-mode: false
-# Set to false if you want to disable auto update.
-auto-update: true
-announce-advancements: true
+# Setting up the deathmatch
 deathmatch:
+  # Set it to false to make an endless game until one team wins
   enable: true
-  #Set it to true if you want players in deathmatch to be in adventure mode. (false = survival mode)
-  deathmatch-adventure-mode: true
+  # The time in seconds before the deathmatch stats
+  delay: 3600
+  # Set it to true if you want players in deathmatch to be in adventure mode. (false = survival mode)
+  deathmatch-adventure-mode: false
 
   # Force end the deathmatch when no players died for a certain time.
   force-end:
+    # Set to true to enable force ending.
     enable: false
+    # Time in seconds before force ending after last kill.
     delay: 120
 
   # To end with a deathmatch arena, you must have WorldEdit installed and your arena.schematic file inside plugins/UhcCore
@@ -486,7 +473,84 @@ deathmatch:
     end-size: 50
     #If moving is set to true, the time in seconds for the border to shrink to end-size
     time-to-shrink: 600
-  delay: 3600
-permanent-world-names: false
-enable-team-names: true
+
+# Having this set to true means the name of your uhc world don't change. This is not suggested since it may cause some worlds to not load correctly.
+# It's recommended to use 'lobby-in-default-world' if you want to use NPC's
+permanent-world-names: true
+
+# Having this set to true will move your lobby to the world specified in your server.properties (spawn point: 0, 100, 0).
+# This feature is recommended for servers with big lobbies or lobbies that need entities (like NPC's).
+# Please note that when enabled you're responsible for building a lobby, no schematic or default box will be created.
 lobby-in-default-world: false
+
+#Write custom seeds to be used when creating a new map
+world-seeds:
+  #Set it to true to pick a random seed from this list
+  pick-random-seed-from-list: false
+
+  #Write here custom seeds
+  list:
+    - 8708477303049171819
+    - 4718448332187272495
+
+#Write existing world name in your server folder to copy and play on a map you have created.
+# If you also want a custom nether or end make sure to include those worlds. They will be named (your_world_nether, your_world_the_end)
+world-list:
+  #Set it to true to use that feature (you must set pick random seed to false also)
+  pick-random-world-from-list: false
+  #A list of your existing world folders (Make sure to not use the same world as in your server.properties!)
+  list:
+    - UHC_world
+    - UHC_world_nether
+
+#Enable bungee-coord support to send players back to the server of your choice when the game ends
+bungee-support:
+  #Set it to true to send players back to a server at the end
+  enable: false
+  #Set it to true if you want players to get a return to lobby item on their hotbar.
+  use-lobby-item: true
+  #The name of the server (same as in your bungee config)
+  send-players-to-server-after-end: lobby
+  #Time (in seconds) before sending the player to the hub (If spectating after death is disabled and they don't have the permission 'uhc-core.spectate.override').
+  time-before-send-after-death: 0
+  #Time (in seconds) before sending all the players to the hub after the game has ended
+  time-before-send-after-end: 0
+
+#Reward your players for taking achievements (kills, win, playing time).
+#Require Vault and an Economy plugin compatible with Vault (I recommend CraftConomy)
+custom-events:
+  #Reward a player a price in your economy currency every time he is still alive after the interval (in seconds)
+  time:
+    enable: false
+    # Amount of money the player should get (Set to 0 for no money reward)
+    reward: 100
+    # Enter a list of commands that should be executed instead (Change to commands: [] if you do not want any commands to be executed.)
+    commands:
+      - 'msg %name% Congratulation you survived!'
+      - 'give %name% gold_ingot 1'
+    interval: 600
+
+  #Reward a player a price in your economy currency every time he kills an enemy
+  kill:
+    enable: false
+    # Amount of money the player should get (Set to 0 for no money reward)
+    reward: 500
+    # Enter a list of commands that should be executed instead (Change to commands: [] if you do not want any commands to be executed.)
+    commands:
+      - 'msg %name% You got a kill!'
+      - 'give %name% diamond 5'
+  #Reward a price in your economy currency to the winners of the game
+  win:
+    enable: false
+    reward: 1000
+    commands:
+      - 'msg %name% You won the game!'
+      - 'give %name% diamond 128'
+
+# When set to true, the plugin won't delete the last world, it will just load it. It will also ignore the map pre-generator.
+# This is to allow fast-configuration, to avoid creating new worlds when you only want to configure some other features.
+debug: false
+# When set to true, the game won't end when only one player is left. This can be used to play alone in order to test games.
+one-player-mode: false
+# Set to false if you want to disable auto update.
+auto-update: true

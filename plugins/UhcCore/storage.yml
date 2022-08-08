@@ -1,3 +1,6 @@
 worlds:
-  normal: c56ca9a7-456a-49d2-9c51-b154e9fa2f5b
-  nether: b6208ac0-b7a0-4023-8261-541a4da1069a
+  normal: uhc-normal
+  nether: uhc-nether
+games:
+- 1659703169726
+- 1659703446370
